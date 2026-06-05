@@ -16,47 +16,60 @@ def Menu():
 def Soma():
 
     print("\n-----Função SOMA------\n")
-    x = float(input("Digite o primeiro valor: "))
-    y = float(input("Digite o segundo valor: "))
-    soma = x + y
-    print(f"\nO resultado da soma entre {x} e {y} é igual a {soma}\n")
-    opcao = input("Digite qualquer valor para voltar ao menu: ")
+    try:
+        x = float(input("Digite o primeiro valor: "))
+        y = float(input("Digite o segundo valor: "))
+        soma = x + y
+        print(f"\nO resultado da soma entre {x} e {y} é igual a {soma}\n")
+        opcao = input("Digite qualquer valor para voltar ao menu: ")
+    except ValueError:
+        print("\nDigite um valor válido!")
+        return 0
 
 def Subtracao():
 
     print("\n-----Função SUBTRAÇÃO------\n")
-    x = float(input("Digite o primeiro valor: "))
-    y = float(input("Digite o segundo valor: "))
-    sub = x - y
-    print(f"\nO resultado da subtração entre {x} e {y} é igual a {sub}\n")
-    opcao = input("Digite qualquer valor para voltar ao menu: ")
-
+    try:
+        x = float(input("Digite o primeiro valor: "))
+        y = float(input("Digite o segundo valor: "))
+        sub = x - y
+        print(f"\nO resultado da subtração entre {x} e {y} é igual a {sub}\n")
+        opcao = input("Digite qualquer valor para voltar ao menu: ")
+    except ValueError:
+        print("\nDigite um valor válido!")
+        return 0
 
 def Multiplicacao():
 
     print("\n-----Função MULTIPLICAÇÃO------\n")
-    x = float(input("Digite o primeiro valor: "))
-    y = float(input("Digite o segundo valor: "))
-    mul = x * y
-    print(f"\nO resultado da multiplicação entre {x} e {y} é igual a {mul}\n")
-    opcao = input("Digite qualquer valor para voltar ao menu: ")
-
+    try:
+        x = float(input("Digite o primeiro valor: "))
+        y = float(input("Digite o segundo valor: "))
+        mul = x * y
+        print(f"\nO resultado da multiplicação entre {x} e {y} é igual a {mul}\n")
+        opcao = input("Digite qualquer valor para voltar ao menu: ")
+    except ValueError:
+        print("\nDigite um valor válido!")
+        return 0
 
 def Divisao():
 
     print("\n-----Função DIVISÃO------\n")
-    x = float(input("Digite o valor do numerador: "))
-    y = float(input("Digite o valor do denominador: "))
-    if y == 0:
-        print("\nO denominador não pode ser zero!\n")
-        print("\nTente novamente\n")
-        y = float(1)
-        Divisao()
-    else:
-        div = x / y
-        print(f"\nO resultado da divisão entre {x} e {y} é igual a {div}\n")
-        opcao = input("Digite qualquer valor para voltar ao menu: ")
-
+    try:
+        x = float(input("Digite o valor do numerador: "))
+        y = float(input("Digite o valor do denominador: "))
+        if y == 0:
+            print("\nO denominador não pode ser zero!\n")
+            print("\nTente novamente\n")
+            y = float(1)
+            Divisao()
+        else:
+            div = x / y
+            print(f"\nO resultado da divisão entre {x} e {y} é igual a {div}\n")
+            opcao = input("Digite qualquer valor para voltar ao menu: ")
+    except ValueError:
+        print("\nDigite um valor válido!")
+        return 0
 
 while True:
     opcao = Menu()
