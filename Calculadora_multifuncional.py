@@ -1,92 +1,80 @@
 def Menu():
 
     print("\n=====Calculadora Muntifuncional=====\n\n")
-    print("1 - Soma")
-    print("2 - Subtração")
-    print("3 - Multiplicação")
-    print("4 - Divisão")
-    print("5 - Sair do programa")
-
+    print("1 - Expresões matemáticas")
+    print("2 - Conservação de energia")
+    print("3 - OUTRA FUNÇÃO")
+    print("4 - Sair do Programa")
     try:
         opcao = int(input("\nDigite a opção desejada: "))
         return opcao
     except ValueError:
         return 0
 
-def Soma():
-
-    print("\n-----Função SOMA------\n")
+def Expressao():
     try:
-        x = float(input("Digite o primeiro valor: "))
-        y = float(input("Digite o segundo valor: "))
-        soma = x + y
-        print(f"\nO resultado da soma entre {x} e {y} é igual a {soma}\n")
-        opcao = input("Digite qualquer valor para voltar ao menu: ")
+        resultado = float(input("Digite o valor inicial: "))
+
+        while True:
+
+            print(f"\nResultado atual: {resultado}")
+            print("1 - Somar")
+            print("2 - Subtrair")
+            print("3 - Multiplicar")
+            print("4 - Dividir")
+            print("5 - Voltar ao menu principal")
+
+            opcao = input("Escolha uma operação: ")
+
+            if opcao == "5":
+                break
+
+            valor = float(input("Digite o valor: "))
+
+            if opcao == "1":
+                resultado = soma(resultado, valor)
+
+            elif opcao == "2":
+                resultado = subtracao(resultado, valor)
+
+            elif opcao == "3":
+                resultado = multiplicacao(resultado, valor)
+
+            elif opcao == "4":
+                try:
+                    resultado = divisao(resultado, valor)
+                except ValueError as erro:
+                    print(erro)
+
+            else:
+                print("Opção inválida.")
+
+        print(f"\nResultado final da expressão: {resultado}")
     except ValueError:
         print("\nDigite um valor válido!")
         return 0
 
-def Subtracao():
+def soma(a,b):
+    return a+b
 
-    print("\n-----Função SUBTRAÇÃO------\n")
-    try:
-        x = float(input("Digite o primeiro valor: "))
-        y = float(input("Digite o segundo valor: "))
-        sub = x - y
-        print(f"\nO resultado da subtração entre {x} e {y} é igual a {sub}\n")
-        opcao = input("Digite qualquer valor para voltar ao menu: ")
-    except ValueError:
-        print("\nDigite um valor válido!")
-        return 0
+def subtracao(a,b):
+    return a-b
 
-def Multiplicacao():
+def multiplicacao(a,b):
+    return a*b
 
-    print("\n-----Função MULTIPLICAÇÃO------\n")
-    try:
-        x = float(input("Digite o primeiro valor: "))
-        y = float(input("Digite o segundo valor: "))
-        mul = x * y
-        print(f"\nO resultado da multiplicação entre {x} e {y} é igual a {mul}\n")
-        opcao = input("Digite qualquer valor para voltar ao menu: ")
-    except ValueError:
-        print("\nDigite um valor válido!")
-        return 0
-
-def Divisao():
-
-    print("\n-----Função DIVISÃO------\n")
-    try:
-        x = float(input("Digite o valor do numerador: "))
-        y = float(input("Digite o valor do denominador: "))
-        if y == 0:
-            print("\nO denominador não pode ser zero!\n")
-            print("\nTente novamente\n")
-            y = float(1)
-            Divisao()
-        else:
-            div = x / y
-            print(f"\nO resultado da divisão entre {x} e {y} é igual a {div}\n")
-            opcao = input("Digite qualquer valor para voltar ao menu: ")
-    except ValueError:
-        print("\nDigite um valor válido!")
-        return 0
+def divisao(a,b):
+    if b == 0:
+        raise ValueError("Não é possível dividir por zero.")
+    return a/b
 
 while True:
     opcao = Menu()
 
     if opcao == 1:
-        Soma()
-
-    elif opcao == 2:
-        Subtracao()
-
-    elif opcao == 3:
-        Multiplicacao()
-
+        Expressao()
+    
     elif opcao == 4:
-        Divisao()
-
-    elif opcao == 5:
         print("\nEncerrando sistema...")
         break
 
