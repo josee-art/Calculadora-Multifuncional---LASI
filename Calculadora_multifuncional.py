@@ -1,4 +1,5 @@
 from fisica import posicao_da_queda
+
 def Menu():
 
     print("\n=====Calculadora Multifuncional=====\n\n")
