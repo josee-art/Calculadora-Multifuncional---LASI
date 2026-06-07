@@ -1,8 +1,9 @@
+from fisica import posicao_da_queda
 def Menu():
 
-    print("\n=====Calculadora Muntifuncional=====\n\n")
+    print("\n=====Calculadora Multifuncional=====\n\n")
     print("1 - Expresões matemáticas")
-    print("2 - Conservação de energia")
+    print("2 - Cálculo da posição da queda de um objeto")
     print("3 - OUTRA FUNÇÃO")
     print("4 - Sair do Programa")
     try:
@@ -18,36 +19,41 @@ def Expressao():
         while True:
 
             print(f"\nResultado atual: {resultado}")
+            print("Escolha uma das funções abaixo para continuar sua expressão: ")
             print("1 - Somar")
             print("2 - Subtrair")
             print("3 - Multiplicar")
             print("4 - Dividir")
             print("5 - Voltar ao menu principal")
 
-            opcao = input("Escolha uma operação: ")
+            try:
+                opcao = int(input("Escolha uma operação: "))
 
-            if opcao == "5":
-                break
+                if opcao == 5:
+                    break
 
-            valor = float(input("Digite o valor: "))
+                valor = float(input("Digite o valor: "))
 
-            if opcao == "1":
-                resultado = soma(resultado, valor)
+                if opcao == 1:
+                    resultado = soma(resultado, valor)
 
-            elif opcao == "2":
-                resultado = subtracao(resultado, valor)
+                elif opcao == 2:
+                    resultado = subtracao(resultado, valor)
 
-            elif opcao == "3":
-                resultado = multiplicacao(resultado, valor)
+                elif opcao == 3:
+                    resultado = multiplicacao(resultado, valor)
 
-            elif opcao == "4":
-                try:
-                    resultado = divisao(resultado, valor)
-                except ValueError as erro:
-                    print(erro)
+                elif opcao == 4:
+                    try:
+                        resultado = divisao(resultado, valor)
+                    except ValueError as erro:
+                        print(erro)
 
-            else:
-                print("Opção inválida.")
+                else:
+                    print("Opção inválida.")
+            except ValueError:
+                print("\nDigite uma opção válida!")
+                continue
 
         print(f"\nResultado final da expressão: {resultado}")
     except ValueError:
@@ -73,6 +79,9 @@ while True:
 
     if opcao == 1:
         Expressao()
+    
+    elif opcao == 2:
+        posicao_da_queda()
     
     elif opcao == 4:
         print("\nEncerrando sistema...")
