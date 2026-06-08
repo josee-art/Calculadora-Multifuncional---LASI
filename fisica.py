@@ -43,6 +43,7 @@ def posicao_da_queda():
         sen = 0.866
         cos = 0.5
     else:
+        angulo = float(45)
         print("\nÂngulo inválido para esta tabela! Definindo padrão de 45 graus.")
         sen = 0.707
         cos = 0.707
@@ -83,4 +84,15 @@ def posicao_da_queda():
     print(f"Tempo total de voo: {tempo_voo:.2f} segundos")
     print(f"Altura máxima atingida: {altura_maxima:.2f} metros")
     print(f"Posição da queda (Alcance horizontal): {alcance:.2f} metros do ponto inicial")
+    with open("historico_fisica.txt", "a", encoding="utf-8") as arquivo:
+        arquivo.write(
+            f"\n--- Histórico de cálculo da posição da queda ---\n"
+            f"Velocidade inicial = {v0:.2f} m/s\n"
+            f"Ângulo = {angulo}°\n"
+            f"Altura inicial = {y0:.2f} m\n"
+            f"Gravidade = {g:.2f} m/s²\n"
+            f"Tempo total de voo = {tempo_voo:.2f} s\n"
+            f"Altura máxima atingida = {altura_maxima:.2f} m\n"
+            f"Posição da queda = {alcance:.2f} m\n"
+        )    
     input("Digite qualquer valor para voltar ao Menu...")

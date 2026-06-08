@@ -4,7 +4,7 @@ from fluxo_de_caixa import caixa
 def Menu():
 
     print("\n=====Calculadora Multifuncional=====\n\n")
-    print("1 - Expresões matemáticas")
+    print("1 - Expressões matemáticas")
     print("2 - Cálculo da posição da queda de um objeto")
     print("3 - Cálculo de Troco")
     print("4 - Sair do Programa")
@@ -17,6 +17,7 @@ def Menu():
 def Expressao():
     try:
         resultado = float(input("Digite o valor inicial: "))
+        expressao = str(resultado)
 
         while True:
 
@@ -38,16 +39,20 @@ def Expressao():
 
                 if opcao == 1:
                     resultado = soma(resultado, valor)
+                    expressao += f" + {valor}"
 
                 elif opcao == 2:
                     resultado = subtracao(resultado, valor)
+                    expressao += f" - {valor}"
 
                 elif opcao == 3:
                     resultado = multiplicacao(resultado, valor)
+                    expressao += f" * {valor}"
 
                 elif opcao == 4:
                     try:
                         resultado = divisao(resultado, valor)
+                        expressao += f" / {valor}"
                     except ValueError as erro:
                         print(erro)
 
@@ -58,6 +63,8 @@ def Expressao():
                 continue
 
         print(f"\nResultado final da expressão: {resultado}")
+        with open("historico_expressao.txt", "a", encoding="utf-8") as arquivo:
+            arquivo.write(f"Histórico de expressão númerica (Executada da esquerda para a direita): {expressao} = {resultado}\n")
     except ValueError:
         print("\nDigite um valor válido!")
         return 0

@@ -30,19 +30,19 @@ def caixa():
 
             if valor_pago < valor_compra:
                 print("\nValor insuficiente para pagar a compra!")
-                break
+                continue
 
             troco = valor_pago - valor_compra
             restante = round(troco * 100) # Coloca o valor restante em centavos, para facilitar calculos
 
             print("\n======Info de Compra======\n")
-            print(f"Valor total das compras: {valor_compra:.2f}")
-            print(f"Valor recebido do cliente: {valor_pago:.2f}")
-            print(f"Valor do troco: {troco:.2f}")
+            print(f"Valor total das compras: R${valor_compra:.2f}")
+            print(f"Valor recebido do cliente: R${valor_pago:.2f}")
+            print(f"Valor do troco: R${troco:.2f}")
             print("\nNotas necessárias para dar o troco ao cliente: ")
 
 
-            # Percorre o dicionário com os valores de cédulas disponíveis
+            # Percorre a lista de cédulas e moedas disponíveis
             for nome, valor in cedulas_moedas:
                 quantidade = restante // valor
 
@@ -52,6 +52,11 @@ def caixa():
                 restante %= valor
 
             print("\n")
+            with open("historico_fluxo_de_caixa.txt", "a", encoding="utf-8") as arquivo:
+                arquivo.write(f"\n--- Histórico de cálculo da posição da queda ---\n"
+                      f"Valor total das compras: R${valor_compra:.2f}\n"
+                      f"Valor recebido do cliente: R${valor_pago:.2f}\n"
+                      f"Valor do troco: R${troco:.2f}\n")
             input("Digite qualquer valor para voltar ao Menu...")
             break         
         except ValueError:
