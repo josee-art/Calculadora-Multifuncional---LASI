@@ -1,11 +1,12 @@
 from fisica import posicao_da_queda
+from fluxo_de_caixa import caixa
 
 def Menu():
 
     print("\n=====Calculadora Multifuncional=====\n\n")
     print("1 - Expresões matemáticas")
     print("2 - Cálculo da posição da queda de um objeto")
-    print("3 - OUTRA FUNÇÃO")
+    print("3 - Cálculo de Troco")
     print("4 - Sair do Programa")
     try:
         opcao = int(input("\nDigite a opção desejada: "))
@@ -83,6 +84,9 @@ while True:
     
     elif opcao == 2:
         posicao_da_queda()
+    
+    elif opcao == 3:
+        caixa()
     
     elif opcao == 4:
         print("\nEncerrando sistema...")

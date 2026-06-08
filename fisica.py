@@ -83,3 +83,4 @@ def posicao_da_queda():
     print(f"Tempo total de voo: {tempo_voo:.2f} segundos")
     print(f"Altura máxima atingida: {altura_maxima:.2f} metros")
     print(f"Posição da queda (Alcance horizontal): {alcance:.2f} metros do ponto inicial")
+    input("Digite qualquer valor para voltar ao Menu...")
