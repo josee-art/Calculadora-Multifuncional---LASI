@@ -52,11 +52,6 @@ def caixa():
                 restante %= valor
 
             print("\n")
-            with open("historico_fluxo_de_caixa.txt", "a", encoding="utf-8") as arquivo:
-                arquivo.write(f"\n--- Histórico de cálculo da posição da queda ---\n"
-                      f"Valor total das compras: R${valor_compra:.2f}\n"
-                      f"Valor recebido do cliente: R${valor_pago:.2f}\n"
-                      f"Valor do troco: R${troco:.2f}\n")
             input("Digite qualquer valor para voltar ao Menu...")
             break         
         except ValueError:

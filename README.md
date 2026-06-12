@@ -24,7 +24,7 @@ O programa está dividido em módulos independentes:
 
 
 
-##### **Funcionalidade 1:** 
+##### **Funcionalidade 1:**
 
 ##### &#x20;**Calculadora de Expressões Matemáticas**
 
@@ -133,7 +133,7 @@ O programa está dividido em módulos independentes:
 
 
 
-&#x20;Após determinar o tempo total de voo: 
+&#x20;Após determinar o tempo total de voo:
 
 
 
@@ -239,18 +239,6 @@ Operadores Utilizados:
 &#x20;Divisão inteira: quantidade = restante // valor
 
 &#x20;Resto da divisão: restante %= valor
-
-
-
-###### **Histórico de Operações:**
-
-&#x20;Cada módulo registra os resultados em arquivos de texto utilizando:
-
-&#x20;    with open("arquivo.txt", "a", encoding="utf-8")
-
-
-
-&#x20;A utilização do modo "a" (append) garante que novos registros sejam adicionados ao final do arquivo sem apagar  os dados anteriores, essa funcionalidade permite acompanhar todas as operações realizadas durante o uso do sistema.
 
 
 

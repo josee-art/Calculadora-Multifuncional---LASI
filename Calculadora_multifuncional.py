@@ -63,8 +63,7 @@ def Expressao():
                 continue
 
         print(f"\nResultado final da expressão: {resultado}")
-        with open("historico_expressao.txt", "a", encoding="utf-8") as arquivo:
-            arquivo.write(f"Histórico de expressão númerica (Executada da esquerda para a direita): {expressao} = {resultado}\n")
+
     except ValueError:
         print("\nDigite um valor válido!")
         return 0
